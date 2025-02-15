@@ -71,6 +71,20 @@
   background-color: #11167a;
 }
 
+.typing-text {
+  font-size: 1.25rem;
+  color: white;
+  font-weight: bold;
+  min-height: 30px;
+  display: inline-block;
+}
+
+.cursor {
+  color: #ffffff;
+  font-weight: bold;
+  animation: blink 0.8s infinite;
+}
+
 
 @keyframes gradientAnimation {
   0% {
@@ -90,5 +104,11 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
 }

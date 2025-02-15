@@ -177,24 +177,57 @@ https://github.com/sayandip007"
 );
 
 // Home Component
+
 const Home = () => {
   const [isOverlayActive, setIsOverlayActive] = useState(false);
   const [imageSource, setImageSource] = useState("");
+  const [typedText, setTypedText] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
-  // Function to handle image click
+  const phrases = [
+    "Future Software Engineer",
+    "Future Web Developer",
+    "Modern Interface Expert",
+    "Future DSA Expert",
+  ];
+  const typingSpeed = 100; 
+  const deletingSpeed = 50; 
+  const delayBetweenPhrases = 1500; 
+
+  useEffect(() => {
+    const currentPhrase = phrases[phraseIndex];
+
+    if (!isDeleting && charIndex < currentPhrase.length) {
+      setTimeout(() => {
+        setTypedText((prev) => prev + currentPhrase[charIndex]);
+        setCharIndex((prev) => prev + 1);
+      }, typingSpeed);
+    } else if (isDeleting && charIndex > 0) {
+      setTimeout(() => {
+        setTypedText((prev) => prev.slice(0, -1));
+        setCharIndex((prev) => prev - 1);
+      }, deletingSpeed);
+    } else if (!isDeleting && charIndex === currentPhrase.length) {
+      setTimeout(() => setIsDeleting(true), delayBetweenPhrases);
+    } else if (isDeleting && charIndex === 0) {
+      setIsDeleting(false);
+      setPhraseIndex((prev) => (prev + 1) % phrases.length);
+    }
+  }, [charIndex, isDeleting]);
+
   const handleImageClick = (src) => {
     setImageSource(src);
     setIsOverlayActive(true);
   };
 
-  // Function to handle overlay click to close
   const handleOverlayClick = () => {
     setIsOverlayActive(false);
     setImageSource("");
   };
 
-  // Function to handle resume download
-    const handleDownloadResume = () => {
+  const handleDownloadResume = () => {
     const resumeUrl = "/resume.pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
@@ -203,42 +236,35 @@ const Home = () => {
     link.click();
     document.body.removeChild(link);
   };
-  
 
   return (
     <section className="home">
       <div className="home-image-section">
-        <div
-          className="home-image-card"
-          onClick={() => handleImageClick("image.jpg")}
-        >
+        <div className="home-image-card" onClick={() => handleImageClick("image.jpg")}>
           <img src="image.jpg" alt="Sayandip" className="home-image" />
         </div>
       </div>
 
-      <div className="home-canvas">
-        {/* Add your 3D content here (or remove this if you don’t want a canvas) */}
-      </div>
-
       <div className="home-content">
         <h2>Hi, I'm Sayandip</h2>
-        <p>
-          Future Software Engineer | Future Web Developer | Modern Interface
-          Expert | Future DSA Expert
+        
+        {/* Static Tagline */}
+        <p className="static-tagline">Code. Build. Innovate. 🚀</p>
+
+        {/* Typing Animation */}
+        <p className="typing-text">
+          {typedText}
+          <span className="cursor">|</span>
         </p>
+
         <button className="home-button" onClick={handleDownloadResume}>
           Download Resume
         </button>
       </div>
 
-      {/* Overlay and Enlarged Image */}
       {isOverlayActive && (
         <div className="overlay" onClick={handleOverlayClick}>
-          <img
-            src={imageSource}
-            alt="Enlarged Profile"
-            className="enlarged-img"
-          />
+          <img src={imageSource} alt="Enlarged Profile" className="enlarged-img" />
         </div>
       )}
     </section>
@@ -353,23 +379,55 @@ const MyExperience = () => {
 };
 
 // Projects Component
+const projectsData = [
+  {
+    title: "Interactive 3D Portfolio",
+    category: "Web",
+    description: "A stunning 3D web portfolio using Three.js and React.",
+    techStack: ["React", "Three.js", "GSAP"],
+    liveDemo: "#",
+    github: "#",
+  },
+  {
+    title: "AI-Driven Analytics App",
+    category: "AI",
+    description: "AI-powered insights for business intelligence.",
+    techStack: ["Python", "TensorFlow", "Flask"],
+    liveDemo: "#",
+    github: "#",
+  },
+  {
+    title: "Virtual Reality Tour Guide",
+    category: "Mobile Apps",
+    description: "A VR-powered application for interactive tourism experiences.",
+    techStack: ["Unity", "C#", "VR SDKs"],
+    liveDemo: "#",
+    github: "#",
+  },
+  {
+    title: "Real-Time Chat App",
+    category: "Web",
+    description: "A scalable chat application with real-time messaging.",
+    techStack: ["React", "Node.js", "Socket.io"],
+    liveDemo: "#",
+    github: "#",
+  },
+];
+
 const Projects = () => (
   <section className="projects">
     <h2>Projects</h2>
+
     <div className="projects-grid">
-      {[
-        "Interactive 3D Portfolio",
-        "AI-Driven Analytics App",
-        "Virtual Reality Tour Guide",
-        "Real-Time Chat App",
-        "Real-Time Chat App",
-      ].map((project, index) => (
+      {projectsData.map((project, index) => (
         <div key={index} className="project-card">
-          <h3>{project}</h3>
-          <p>
-            An advanced project featuring cutting-edge technologies designed to
-            deliver outstanding user experiences.
-          </p>
+          <h3>{project.title}</h3>
+          <p>{project.description}</p>
+          <p><strong>Tech Stack:</strong> {project.techStack.join(", ")}</p>
+          <div className="project-links">
+            <a href={project.liveDemo} target="_blank" rel="noopener noreferrer">Live Demo</a>
+            <a href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </div>
       ))}
     </div>
@@ -379,11 +437,11 @@ const Projects = () => (
 // Contact Component
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   });
-  const [statusMessage, setStatusMessage] = useState({ type: '', message: '' });
+  const [statusMessage, setStatusMessage] = useState({ type: "", message: "" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -393,30 +451,26 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation (you can expand this based on your needs)
     if (!formData.name || !formData.email || !formData.message) {
-      setStatusMessage({ type: 'error', message: 'All fields are required.' });
+      setStatusMessage({ type: "error", message: "All fields are required." });
       return;
     }
 
-    // Simulate successful form submission
     setStatusMessage({
-      type: 'success',
-      message: 'Your message has been sent successfully!',
+      type: "success",
+      message: "Your message has been sent successfully!",
     });
 
-    // Reset form data (optional)
     setFormData({
-      name: '',
-      email: '',
-      message: '',
+      name: "",
+      email: "",
+      message: "",
     });
   };
 
   return (
     <section className="contact-page">
       <div className="contact-container">
-        {/* Left Section */}
         <div className="contact-info">
           <h3>Name</h3>
           <p>User 1234</p>
@@ -431,9 +485,8 @@ const Contact = () => {
           <p>User1234@gmail.com</p>
         </div>
 
-        {/* Right Section */}
         <div className="contact-form-section">
-          <h2>Contact US</h2>
+          <h2>Contact Us</h2>
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Full Name</label>
@@ -469,11 +522,7 @@ const Contact = () => {
             </div>
 
             {statusMessage.message && (
-              <div
-                className={`status-message ${
-                  statusMessage.type === 'success' ? 'success' : 'error'
-                }`}
-              >
+              <div className={`status-message ${statusMessage.type}`}>
                 {statusMessage.message}
               </div>
             )}
