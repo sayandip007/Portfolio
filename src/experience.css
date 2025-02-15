@@ -1,0 +1,72 @@
+
+.my-experience {
+    padding: 50px;
+    background: linear-gradient(to right,#ed3d63,#a809ad,#7609ad,#1d36c5,#11167a);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  .experience-header {
+    font-size: 2.5rem;
+    color: #ff7f50;
+    margin-bottom: 40px;
+    animation: fade-in 1s ease-out;
+  }
+  
+  .experience-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    animation: slide-up 1s ease-out;
+  }
+  
+  .experience-card {
+    background: #1c1c2e;
+    padding: 20px;
+    border-radius: 15px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    background: #ffffff54;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  }
+  
+  .experience-card:hover {
+    transform: translateY(-10px);
+    background: #272742;
+  }
+  
+  .experience-date {
+    font-size: 1.5rem;
+    color: #00cfe8;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .experience-details {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e1e1e1;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-up {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
