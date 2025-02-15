@@ -194,15 +194,16 @@ const Home = () => {
   };
 
   // Function to handle resume download
-  const handleDownloadResume = () => {
-    const resumeUrl = "/public/resume.pdf";
+    const handleDownloadResume = () => {
+    const resumeUrl = "/resume.pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "Resume.pdf";
+    link.setAttribute("download", "Resume.pdf");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
+  
 
   return (
     <section className="home">
