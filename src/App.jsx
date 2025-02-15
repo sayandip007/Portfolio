@@ -246,7 +246,9 @@ const Home = () => {
       </div>
 
       <div className="home-content">
-        <h2>Hi, I'm Sayandip</h2>
+      <h2 className="aurora-text">
+        Hi, I'm Sayandip
+    </h2>
         
         {/* Static Tagline */}
         <p className="static-tagline">Code. Build. Innovate. 🚀</p>

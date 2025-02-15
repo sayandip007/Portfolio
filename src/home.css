@@ -85,6 +85,37 @@
   animation: blink 0.8s infinite;
 }
 
+.aurora-text {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  
+  background: linear-gradient(90deg, #0d3b66, #f0a500, #f45d01, #f9c74f, #f9f9f9);
+  background-size: 400% 400%;
+  
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  
+  animation: aurora-text 5s infinite linear;
+}
+
+/* Gradient Animation */
+@keyframes aurora-text {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
 
 @keyframes gradientAnimation {
   0% {
