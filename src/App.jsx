@@ -165,8 +165,7 @@ https://github.com/sayandip007"
       >
         GeeksforGeeks
       </a>
-      <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=sayandiplynn@gmail.com" target="_blank" rel="noopener noreferrer">Contact
-      </a>
+      <a href="intent://compose?to=sayandiplynn@gmail.com#Intent;scheme=mailto;package=com.google.android.gm;end;">Contact</a>
     </div>
   </footer>
 );
