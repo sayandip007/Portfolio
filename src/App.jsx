@@ -132,43 +132,44 @@ const Header = () => {
 };
 
 // Footer Component
-const Footer = () => (
-  <footer className="footer">
-    <p>&copy; 2025 Sayandip Saha. All rights reserved.</p>
-    <div className="footer-links">
-      <a
-        href="https://www.linkedin.com/in/sayandipsaha"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        LinkedIn
-      </a>
-      <a
-        href="
-https://github.com/sayandip007"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub
-      </a>
-      <a
-        href="https://leetcode.com/u/Sayandip007/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Leetcode
-      </a>
-      <a
-        href="https://www.geeksforgeeks.org/user/sayandip007/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GeeksforGeeks
-      </a>
-      <a href="intent://compose?to=sayandiplynn@gmail.com#Intent;scheme=mailto;package=com.google.android.gm;end;">Contact</a>
-    </div>
-  </footer>
-);
+const Footer = () => {
+  const handleContactClick = (event) => {
+    event.preventDefault(); 
+
+    const email = "sayandiplynn@gmail.com";
+    const mobileLink = `mailto:${email}`;
+    const desktopLink = `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${email}`;
+
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      window.location.href = mobileLink;
+    } else {
+      window.open(desktopLink, "_blank");
+    }
+  };
+
+  return (
+    <footer className="footer">
+      <p>&copy; 2025 Sayandip Saha. All rights reserved.</p>
+      <div className="footer-links">
+        <a href="https://www.linkedin.com/in/sayandipsaha" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+        <a href="https://github.com/sayandip007" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+        <a href="https://leetcode.com/u/Sayandip007/" target="_blank" rel="noopener noreferrer">
+          Leetcode
+        </a>
+        <a href="https://www.geeksforgeeks.org/user/sayandip007/" target="_blank" rel="noopener noreferrer">
+          GeeksforGeeks
+        </a>
+        <a href="#" onClick={handleContactClick} style={{}}>
+          Contact
+        </a>
+      </div>
+    </footer>
+  );
+};
 
 // Home Component
 
