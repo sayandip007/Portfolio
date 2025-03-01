@@ -1,4 +1,3 @@
-
 .navbar {
   background: linear-gradient(to right, #ed3d63, #a809ad, #7609ad, #1d36c5, #11167a);
   color: #fff;
@@ -12,13 +11,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  max-width: 87%;
   margin: 0 auto;
   padding: 0 20px;
 }
 
 .nav-logo {
-  font-size: 1.6rem;
+  font-size: 1.9rem;
   font-weight: 600;
   text-decoration: none;
   color: #fff;
@@ -26,145 +25,173 @@
   align-items: center;
 }
 
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 9;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  scroll-behavior: none;
+/* Remove overlay for laptops */
+@media screen and (min-width: 1025px) {
+  .overlay {
+    display: none !important;
+  }
+
+  .nav-toggle {
+    display: none !important;
+  }
+
+  .nav-menu {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: static;
+    transform: none;
+    opacity: 1;
+    background: none;
+    padding: 0;
+    width: auto;
+  }
+
+  .nav-item {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s ease-in-out;
+  }
+
+  .nav-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border: none;
+  }
 }
 
-.overlay.active {
-  display: block;
+/* Overlay and hamburger for other devices */
+@media screen and (max-width: 1024px) {
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9;
+    opacity: 0;
+    pointer-events: none; 
+    transition: opacity 0.3s ease;
+  }
+
+  .overlay.active {
+    display: block;
   opacity: 1;
-}
+  pointer-events: all;
+  }
 
-.nav-menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 40px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 400px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  display: none;
-  z-index: 10;
-}
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+  }
 
-.nav-menu.active {
-  display: block;
-  opacity: 1;
-}
+  .nav-menu.active {
+    display: flex;
+    opacity: 1;
+  }
 
-.nav-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  text-align: center;
-  padding: 20px;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s, color 0.3s ease-in-out;
-  font-size: 1.4rem;
-  color: #fff;
-  font-weight: 500;
-  text-transform: uppercase;
-  border-radius: 8px;
-  width: 100%;
-  list-style: none;
-  animation: slide-up 0.5s ease-out;
-}
+  .nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s ease-in-out;
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-radius: 8px;
+    width: 100%;
+    list-style: none;
+  }
 
-.nav-item:hover {
-  transform: translateY(-10px) scale(1.05);
-}
+  .nav-item:hover {
+    transform: translateY(-10px) scale(1.05);
+  }
 
-.nav-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  font-weight: 600;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  padding: 8px;
-  cursor: pointer;
-  transition: color 0.3s ease;
-  width: 140px;
-  border: white 2px solid;
-}
+  .nav-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    padding: 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    width: 140px;
+    border: white 2px solid;
+  }
 
-.nav-toggle {
-  display: block;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
-  z-index: 11;
-  transition: all 0.5s ease;
-}
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 11;
+    transition: all 0.5s ease;
+  }
 
-.nav-toggle .bar {
-  display: block;
-  width: 30px;
-  height: 5px;
-  margin: 6px 0;
-  background-color: #fff;
-  transition: all 0.3s ease;
-}
+  .nav-toggle .bar {
+    display: block;
+    width: 30px;
+    height: 5px;
+    margin: 6px 0;
+    background-color: #fff;
+    transition: all 0.3s ease;
+  }
 
-.nav-toggle.open .bar:nth-child(1) {
-  transform: rotate(45deg) translate(7.5px, 7.5px); 
-}
+  .nav-toggle.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(7.5px, 7.5px);
+  }
 
-.nav-toggle.open .bar:nth-child(2) {
-  opacity: 0; 
-}
+  .nav-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+  }
 
-.nav-toggle.open .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(7.5px, -7.5px);
-}
+  .nav-toggle.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(7.5px, -7.5px);
+  }
 
-.nav-toggle.open {
-  position: absolute;
-  transition: transform 0.3s ease;
-  transform: rotate(90deg);
+  .nav-toggle.open {
+    transition: transform 0.3s ease;
+    transform: rotate(90deg);
+  }
 }
 
 body.overlay-active {
   overflow: hidden;
-}
-
-@media screen and (max-width: 900px) {
-  .nav-toggle {
-    display: block;
-  }
-}
-
-@media screen and (max-width: 550px) {
-  .nav-container {
-    padding: 0 15px;
-  }
-
-  .nav-logo {
-    font-size: 1.4rem;
-  }
-
-  .nav-toggle {
-    margin-right: 15px;
-  }
 }

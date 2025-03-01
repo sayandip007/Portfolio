@@ -28,11 +28,21 @@ const Button = ({ children, onClick, className }) => (
 /*Header Section*/
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLaptop, setIsLaptop] = useState(window.innerWidth >= 1024);
 
   // Toggle the menu on/off
   const toggleMenu = () => {
     setIsMenuOpen((prevState) => !prevState);
   };
+
+  // Check if the device is a laptop
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLaptop(window.innerWidth >= 1024);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Close menu if clicked outside
   const closeMenuIfClickedOutside = (e) => {
@@ -49,10 +59,7 @@ const Header = () => {
       document.body.classList.remove("overlay-active");
     }
 
-    // Adding event listener for clicking outside the overlay
     document.addEventListener("click", closeMenuIfClickedOutside);
-
-    // Clean up on component unmount
     return () => {
       document.removeEventListener("click", closeMenuIfClickedOutside);
     };
@@ -64,69 +71,53 @@ const Header = () => {
         <Link to="/" className="nav-logo">
           Portfolio
         </Link>
-
-        {/* Mobile Menu Button - Hamburger or X depending on state */}
-        <div
-          className={`nav-toggle ${isMenuOpen ? "open" : ""}`}
-          onClick={toggleMenu}
-        >
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
-        </div>
+        {/* Show menu inline for laptops */}
+        {isLaptop ? (
+          <ul className="nav-menu">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link">About</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/projects" className="nav-link">Projects</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/experience" className="nav-link">Experience</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/contact" className="nav-link">Contact</Link>
+            </li>
+          </ul>
+        ) : (
+          <>
+            <div className={`nav-toggle ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}>
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span className="bar"></span>
+            </div>
+            <div className={`overlay ${isMenuOpen ? "active" : ""}`}></div>
+            <ul className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
+              <li className="nav-item">
+                <Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/about" className="nav-link" onClick={() => setIsMenuOpen(false)}>About</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/projects" className="nav-link" onClick={() => setIsMenuOpen(false)}>Projects</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/experience" className="nav-link" onClick={() => setIsMenuOpen(false)}>Experience</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+              </li>
+            </ul>
+          </>
+        )}
       </div>
-
-      {/* Transparent overlay */}
-      <div className={`overlay ${isMenuOpen ? "active" : ""}`}></div>
-
-      {/* Navigation Menu */}
-      <ul className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
-        <li className="nav-item">
-          <Link
-            to="/"
-            className="nav-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Home
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            to="/about"
-            className="nav-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            About
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            to="/projects"
-            className="nav-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Projects
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            to="/experience"
-            className="nav-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Experience
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link
-            to="/contact"
-            className="nav-link"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Contact
-          </Link>
-        </li>
-      </ul>
     </header>
   );
 };
