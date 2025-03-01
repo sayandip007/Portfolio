@@ -165,12 +165,7 @@ https://github.com/sayandip007"
       >
         GeeksforGeeks
       </a>
-      <a
-        href="https://mail.google.com/mail/?view=cm&fs=1&to=sayandiplynn@gmail.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Contact
+      <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=sayandiplynn@gmail.com" target="_blank" rel="noopener noreferrer">Contact
       </a>
     </div>
   </footer>
@@ -192,9 +187,9 @@ const Home = () => {
     "Modern Interface Expert",
     "Future DSA Expert",
   ];
-  const typingSpeed = 100; 
-  const deletingSpeed = 50; 
-  const delayBetweenPhrases = 1500; 
+  const typingSpeed = 100;
+  const deletingSpeed = 50;
+  const delayBetweenPhrases = 1500;
 
   useEffect(() => {
     const currentPhrase = phrases[phraseIndex];
@@ -240,16 +235,17 @@ const Home = () => {
   return (
     <section className="home">
       <div className="home-image-section">
-        <div className="home-image-card" onClick={() => handleImageClick("image.jpg")}>
+        <div
+          className="home-image-card"
+          onClick={() => handleImageClick("image.jpg")}
+        >
           <img src="image.jpg" alt="Sayandip" className="home-image" />
         </div>
       </div>
 
       <div className="home-content">
-      <h2 className="aurora-text">
-        Hi, I'm Sayandip
-    </h2>
-        
+        <h2 className="aurora-text">Hi, I'm Sayandip</h2>
+
         {/* Static Tagline */}
         <p className="static-tagline">Code. Build. Innovate. 🚀</p>
 
@@ -266,7 +262,11 @@ const Home = () => {
 
       {isOverlayActive && (
         <div className="overlay" onClick={handleOverlayClick}>
-          <img src={imageSource} alt="Enlarged Profile" className="enlarged-img" />
+          <img
+            src={imageSource}
+            alt="Enlarged Profile"
+            className="enlarged-img"
+          />
         </div>
       )}
     </section>
@@ -401,7 +401,8 @@ const projectsData = [
   {
     title: "Virtual Reality Tour Guide",
     category: "Mobile Apps",
-    description: "A VR-powered application for interactive tourism experiences.",
+    description:
+      "A VR-powered application for interactive tourism experiences.",
     techStack: ["Unity", "C#", "VR SDKs"],
     liveDemo: "#",
     github: "#",
@@ -425,10 +426,20 @@ const Projects = () => (
         <div key={index} className="project-card">
           <h3>{project.title}</h3>
           <p>{project.description}</p>
-          <p><strong>Tech Stack:</strong> {project.techStack.join(", ")}</p>
+          <p>
+            <strong>Tech Stack:</strong> {project.techStack.join(", ")}
+          </p>
           <div className="project-links">
-            <a href={project.liveDemo} target="_blank" rel="noopener noreferrer">Live Demo</a>
-            <a href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a
+              href={project.liveDemo}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Live Demo
+            </a>
+            <a href={project.github} target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
           </div>
         </div>
       ))}
