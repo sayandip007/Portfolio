@@ -25,7 +25,37 @@
   align-items: center;
 }
 
-/* Remove overlay for laptops */
+.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .navbar {
+  background: linear-gradient(to right, #1a1a1a, #252525, #333, #444, #222);
+}
+
+.dark-mode .nav-link {
+  color: #ddd;
+}
+
+.dark-mode-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 15px;
+  font-size: 1rem;
+  background: #222222;
+  color: #fff;
+  border-radius: 20%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 20;
+}
+
+.dark-mode-button:hover {
+  background: #535353;
+}
+
 @media screen and (min-width: 1025px) {
   .overlay {
     display: none !important;
@@ -72,7 +102,6 @@
   }
 }
 
-/* Overlay and hamburger for other devices */
 @media screen and (max-width: 1024px) {
   .overlay {
     display: none;
@@ -90,8 +119,8 @@
 
   .overlay.active {
     display: block;
-  opacity: 1;
-  pointer-events: all;
+    opacity: 1;
+    pointer-events: all;
   }
 
   .nav-menu {

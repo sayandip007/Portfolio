@@ -3,13 +3,13 @@
   flex-direction: column;
   align-items: center;
   padding: 20px 30px;
-  background: linear-gradient(to right,#ed3d63,#a809ad,#7609ad,#1d36c5,#11167a);
+  background: linear-gradient(to right, #ed3d63, #a809ad, #7609ad, #1d36c5, #11167a);
   color: #e0e0e0;
   font-size: 1rem;
   text-align: center;
-  backdrop-filter: blur(5px); 
+  backdrop-filter: blur(5px);
+  transition: background 0.3s, color 0.3s;
 }
-
 
 .footer p {
   font-size: 1.1rem;
@@ -31,6 +31,7 @@
   padding: 5px 10px;
   border-radius: 5px;
   position: relative;
+  transition: color 0.3s;
 }
 
 .footer-links a::before {
@@ -78,4 +79,18 @@
   .footer-links a {
     font-size: 0.9rem;
   }
+}
+
+/* Dark Mode Styles */
+.dark-mode .footer {
+  background: linear-gradient(to right, #1a1a1a, #252525, #333, #444, #222);
+  color: #b0b0b0;
+}
+
+.dark-mode .footer-links a {
+  color: #80dfff;
+}
+
+.dark-mode .footer-links a:hover {
+  color: #ff7f50;
 }

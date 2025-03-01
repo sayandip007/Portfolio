@@ -29,6 +29,9 @@ const Button = ({ children, onClick, className }) => (
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLaptop, setIsLaptop] = useState(window.innerWidth >= 1024);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("darkMode") === "enabled"
+  );
 
   // Toggle the menu on/off
   const toggleMenu = () => {
@@ -64,6 +67,17 @@ const Header = () => {
       document.removeEventListener("click", closeMenuIfClickedOutside);
     };
   }, [isMenuOpen]);
+
+  // Apply dark mode class to body
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+      localStorage.setItem("darkMode", "enabled");
+    } else {
+      document.body.classList.remove("dark-mode");
+      localStorage.setItem("darkMode", "disabled");
+    }
+  }, [darkMode]);
 
   return (
     <header className="navbar">
@@ -117,6 +131,13 @@ const Header = () => {
             </ul>
           </>
         )}
+        {/* Dark mode toggle button */}
+        <button
+          className="dark-mode-button"
+          onClick={() => setDarkMode((prevMode) => !prevMode)}
+        >
+          {darkMode ? "☀️" : "🌙"}
+        </button>
       </div>
     </header>
   );
