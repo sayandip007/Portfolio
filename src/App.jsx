@@ -80,7 +80,7 @@ const Header = () => {
   }, [darkMode]);
 
   return (
-    <header className="navbar">
+    <header className="navbar primary secondary">
       <div className="nav-container">
         <Link to="/" className="nav-logo">
           Portfolio
@@ -224,6 +224,8 @@ const Home = () => {
     }
   }, [charIndex, isDeleting]);
 
+  
+
   const handleImageClick = (src) => {
     setImageSource(src);
     setIsOverlayActive(true);
@@ -244,8 +246,12 @@ const Home = () => {
     document.body.removeChild(link);
   };
 
+  
+
+  const isDarkMode = document.body.classList.contains("dark-mode");
+
   return (
-    <section className="home">
+    <section className={`home primary secondary ${isDarkMode ? 'dark' : ''}`}>
       <div className="home-image-section">
         <div
           className="home-image-card"
@@ -286,8 +292,8 @@ const Home = () => {
 };
 
 // About Component
-const About = () => (
-  <section className="about">
+const About = ({ isDarkMode }) => (
+  <section className={`about ${isDarkMode ? 'dark-mode' : ''}`}>
     <h2>About Me</h2>
     <div className="about-content">
       <p>
@@ -317,7 +323,6 @@ const About = () => (
           <li>MongoDB, Node.js</li>
         </ul>
       </Card>
-
       <Card>
         <h3>Experience</h3>
         <p>
@@ -346,6 +351,7 @@ const About = () => (
     </div>
   </section>
 );
+
 
 // My Experience Component
 const experiences = [
@@ -377,8 +383,14 @@ const experiences = [
 ];
 
 const MyExperience = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
-    <div className="my-experience">
+    <div className={`my-experience ${isDarkMode ? "dark-mode" : ""}`}>
       <h1 className="experience-header">My Experiences</h1>
       <div className="experience-cards">
         {experiences.map((experience, index) => (
@@ -429,8 +441,8 @@ const projectsData = [
   },
 ];
 
-const Projects = () => (
-  <section className="projects">
+const Projects = ({ darkMode }) => (
+  <section className={`projects ${darkMode ? 'dark-mode' : ''}`}>
     <h2>Projects</h2>
 
     <div className="projects-grid">
@@ -461,12 +473,8 @@ const Projects = () => (
 
 // Contact Component
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [statusMessage, setStatusMessage] = useState({ type: "", message: "" });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [statusMessage, setStatusMessage] = useState({ type: '', message: '' });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -475,92 +483,64 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!formData.name || !formData.email || !formData.message) {
-      setStatusMessage({ type: "error", message: "All fields are required." });
+      setStatusMessage({ type: 'error', message: 'All fields are required.' });
       return;
     }
-
-    setStatusMessage({
-      type: "success",
-      message: "Your message has been sent successfully!",
-    });
-
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    setStatusMessage({ type: 'success', message: 'Your message has been sent successfully!' });
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
-    <section className="contact-page">
+    <section className="contact-section">
+      <h2 className="contact-header">Contact Us</h2>
       <div className="contact-container">
         <div className="contact-info">
           <h3>Name</h3>
           <p>User 1234</p>
-
           <h3>Address</h3>
           <p>123 Street, City, Country</p>
-
           <h3>Phone</h3>
           <p>+91 12345 67890</p>
-
           <h3>Email</h3>
           <p>User1234@gmail.com</p>
         </div>
-
-        <div className="contact-form-section">
-          <h2>Contact Us</h2>
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Enter your full name"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter your email"
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Comment or Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Write your message here"
-              ></textarea>
-            </div>
-
-            {statusMessage.message && (
-              <div className={`status-message ${statusMessage.type}`}>
-                {statusMessage.message}
-              </div>
-            )}
-
-            <button type="submit" className="submit-button">
-              Submit
-            </button>
-          </form>
-        </div>
+        <form className="contact-form" onSubmit={handleSubmit}>
+          <input
+            className="contact-input"
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Your Name"
+          />
+          <input
+            className="contact-input"
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Your Email"
+          />
+          <textarea
+            className="contact-textarea"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Your Message"
+          ></textarea>
+          <button className="contact-button" type="submit">
+            Send Message
+          </button>
+          {statusMessage.message && (
+            <p className={`status-message ${statusMessage.type}`}>{statusMessage.message}</p>
+          )}
+        </form>
       </div>
     </section>
   );
 };
+
 
 const App = () => (
   <Router>

@@ -7,7 +7,7 @@
   padding: 2rem;
   gap: 2rem;
   min-height: 100vh;
-  background: linear-gradient(to right,#ed3d63,#a809ad,#7609ad,#1d36c5,#11167a);
+  background: var(--primary-color);
   animation: gradientAnimation 10s ease infinite;
 }
 
@@ -142,4 +142,62 @@
   50% {
     opacity: 0;
   }
+}
+
+/* Dark Mode Styles for Home */
+.dark-mode .home {
+  background: var(--secondary-color);
+  color: #ffffff;
+  animation: none;
+}
+
+.dark-mode .home-content {
+  color: #b0b0b0;
+}
+
+.dark-mode .home p {
+  color: #d1d1d1;
+}
+
+.dark-mode .home-content h2 {
+  color: #80dfff;
+}
+
+.dark-mode .home-button {
+  background-color: #007acc;
+  color: #ffffff;
+  transition: background-color 0.3s;
+}
+
+.dark-mode .home-button:hover {
+  background-color: #005f99;
+  transform: scale(1.05);
+}
+
+/* Image Card Dark Mode */
+.dark-mode .home-image-card {
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .home-image-card:hover {
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Typing Text Dark Mode */
+.dark-mode .typing-text {
+  color: #80dfff;
+}
+
+/* Cursor Dark Mode */
+.dark-mode .cursor {
+  color: #80dfff;
+}
+
+/* Aurora Text Dark Mode */
+.dark-mode .aurora-text {
+  background: linear-gradient(90deg, #80dfff, #f0a500, #f45d01, #f9c74f, #b0b0b0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: aurora-text 5s infinite linear;
 }

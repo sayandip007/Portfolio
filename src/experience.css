@@ -1,74 +1,145 @@
-
 .my-experience {
-    padding: 50px;
-    background: linear-gradient(to right,#ed3d63,#a809ad,#7609ad,#1d36c5,#11167a);
-    color: white;
-    text-align: center;
-    min-height: 100vh;
-  }
-  
-  .experience-header {
-    font-size: 2.5rem;
-    color: #ff7f50;
-    margin-bottom: 40px;
-    animation: fade-in 1s ease-out;
-  }
-  
-  .experience-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    animation: slide-up 1s ease-out;
-  }
-  
-  .experience-card {
-    background: #1c1c2e;
-    padding: 20px;
-    border-radius: 15px;
-    transition: transform 0.3s ease, background 0.3s ease;
-    background: #ffffff54;
+  padding: 50px;
+  background: var(--primary-color);
+  color: var(--text-color);
+  text-align: center;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Experience Header */
+.experience-header {
+  font-size: 2.5rem;
+  color: #ff7f50;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  margin-bottom: 40px;
+  animation: fade-in 1s ease-out;
+}
+
+/* Experience Cards */
+.experience-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  animation: slide-up 1s ease-out;
+}
+
+/* Card Styles */
+.experience-card {
+  background: #ffffff54;
+  padding: 20px;
+  border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Experience Date */
+.experience-date {
+  font-size: 1.5rem;
+  color: #00cfe8;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Experience Details */
+.experience-details {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Dark Mode Support */
+body.dark-mode .my-experience {
+  background: var(--secondary-color);
+  color: #e0e0e0;
+}
+
+body.dark-mode .experience-header {
+  color: #ff6347;
+}
+
+body.dark-mode .experience-card {
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .experience-date {
+  color: #64ffda;
+}
+
+body.dark-mode .experience-details {
+  color: #e0e0e0;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  .experience-card:hover {
-    transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .my-experience {
+    padding: 30px 15px;
+  }
+
+  .experience-header {
+    font-size: 2rem;
+  }
+
+  .experience-card {
+    padding: 1.5rem;
+  }
+
   .experience-date {
-    font-size: 1.5rem;
-    color: #00cfe8;
-    margin-bottom: 15px;
-    font-weight: bold;
+    font-size: 1.3rem;
   }
-  
+
   .experience-details {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #e1e1e1;
+    font-size: 0.9rem;
   }
-  
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+}
+
+@media (max-width: 480px) {
+  .experience-header {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
   }
-  
-  @keyframes slide-up {
-    from {
-      transform: translateY(50px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+
+  .experience-card {
+    padding: 1.2rem;
   }
-  
+
+  .experience-date {
+    font-size: 1.2rem;
+  }
+
+  .experience-details {
+    font-size: 0.8rem;
+  }
+}
