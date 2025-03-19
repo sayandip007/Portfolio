@@ -68,6 +68,10 @@ h3 {
 }
 
 /* Dark Mode Support */
+
+.dark-mode h2{
+  color: #00cfe8;
+}
 body.dark-mode .projects {
   background: var(--secondary-color);
   color: #e0e0e0;

@@ -29,6 +29,10 @@ body.dark-mode .contact-section {
   color: #ffffff;
 }
 
+.dark-mode .contact-header {
+  color: #00cfe8;
+}
+
 /* Contact Header */
 .contact-header {
   font-size: 2.5rem;

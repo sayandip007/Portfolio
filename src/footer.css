@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px 30px;
-  background: linear-gradient(to right, #ed3d63, #a809ad, #7609ad, #1d36c5, #11167a);
+  background: var(--primary-color);
   color: #e0e0e0;
   font-size: 1rem;
   text-align: center;
@@ -95,7 +95,7 @@
 }
 
 .dark-mode .footer-links a {
-  color: #80dfff;
+  color: #00cfe8;
 }
 
 .dark-mode .footer-links a:hover {

@@ -44,6 +44,9 @@ body {
 .dark-mode .navbar {
   background: var(--secondary-color);
 }
+.dark-mode .nav-logo {
+  color: #ddd;
+}
 
 .dark-mode .nav-link {
   color: #ddd;
@@ -56,16 +59,16 @@ body {
   right: 20px;
   padding: 15px 15px;
   font-size: 1rem;
-  background: #222222;
+  background: #0b0b0b;
   color: #fff;
-  border-radius: 20%;
+  border-radius: 25%;
   cursor: pointer;
   transition: background 0.3s ease;
   z-index: 20;
 }
 
 .dark-mode-button:hover {
-  background: #535353;
+  background: #000000;
 }
 
 /* ===== Laptop View (1025px and above) ===== */
