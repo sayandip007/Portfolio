@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./header.css";
 import "./footer.css";
 import "./home.css";
-import "./buttons.css";
-import "./cards.css";
 import "./experience.css";
 import "./about.css";
 import "./projects.css";
