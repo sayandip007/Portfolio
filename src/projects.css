@@ -108,6 +108,7 @@ body.dark-mode .project-card-description {
   }
 }
 
+/* Media Queries */
 @media (max-width: 768px) {
   .projects {
     padding: 30px 15px;
@@ -117,8 +118,17 @@ body.dark-mode .project-card-description {
     font-size: 2rem;
   }
 
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
   .project-card {
     padding: 1.5rem;
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .project-card-title {
@@ -138,6 +148,10 @@ body.dark-mode .project-card-description {
 
   .project-card {
     padding: 1.2rem;
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .project-card-title {
