@@ -87,24 +87,37 @@ const Header = () => {
         {isLaptop ? (
           <ul className="nav-menu">
             <li className="nav-item">
-              <Link to="/" className="nav-link">Home</Link>
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
             </li>
             <li className="nav-item">
-              <Link to="/about" className="nav-link">About</Link>
+              <Link to="/about" className="nav-link">
+                About
+              </Link>
             </li>
             <li className="nav-item">
-              <Link to="/projects" className="nav-link">Projects</Link>
+              <Link to="/projects" className="nav-link">
+                Projects
+              </Link>
             </li>
             <li className="nav-item">
-              <Link to="/experience" className="nav-link">Experience</Link>
+              <Link to="/experience" className="nav-link">
+                Experience
+              </Link>
             </li>
             <li className="nav-item">
-              <Link to="/contact" className="nav-link">Contact</Link>
+              <Link to="/contact" className="nav-link">
+                Contact
+              </Link>
             </li>
           </ul>
         ) : (
           <>
-            <div className={`nav-toggle ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}>
+            <div
+              className={`nav-toggle ${isMenuOpen ? "open" : ""}`}
+              onClick={toggleMenu}
+            >
               <span className="bar"></span>
               <span className="bar"></span>
               <span className="bar"></span>
@@ -112,19 +125,49 @@ const Header = () => {
             <div className={`overlay ${isMenuOpen ? "active" : ""}`}></div>
             <ul className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
               <li className="nav-item">
-                <Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</Link>
+                <Link
+                  to="/"
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Home
+                </Link>
               </li>
               <li className="nav-item">
-                <Link to="/about" className="nav-link" onClick={() => setIsMenuOpen(false)}>About</Link>
+                <Link
+                  to="/about"
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About
+                </Link>
               </li>
               <li className="nav-item">
-                <Link to="/projects" className="nav-link" onClick={() => setIsMenuOpen(false)}>Projects</Link>
+                <Link
+                  to="/projects"
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Projects
+                </Link>
               </li>
               <li className="nav-item">
-                <Link to="/experience" className="nav-link" onClick={() => setIsMenuOpen(false)}>Experience</Link>
+                <Link
+                  to="/experience"
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Experience
+                </Link>
               </li>
               <li className="nav-item">
-                <Link to="/contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+                <Link
+                  to="/contact"
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </>
@@ -144,7 +187,7 @@ const Header = () => {
 // Footer Component
 const Footer = () => {
   const handleContactClick = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     const email = "sayandiplynn@gmail.com";
     const mobileLink = `mailto:${email}`;
@@ -161,16 +204,32 @@ const Footer = () => {
     <footer className="footer">
       <p>&copy; 2025 Sayandip Saha. All rights reserved.</p>
       <div className="footer-links">
-        <a href="https://www.linkedin.com/in/sayandipsaha" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.linkedin.com/in/sayandip007/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           LinkedIn
         </a>
-        <a href="https://github.com/sayandip007" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/sayandip007"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           GitHub
         </a>
-        <a href="https://leetcode.com/u/Sayandip007/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://leetcode.com/u/Sayandip007/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Leetcode
         </a>
-        <a href="https://www.geeksforgeeks.org/user/sayandip007/" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://www.geeksforgeeks.org/user/sayandip007/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           GeeksforGeeks
         </a>
         <a href="#" onClick={handleContactClick} style={{}}>
@@ -191,12 +250,7 @@ const Home = () => {
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const phrases = [
-    "Future Software Engineer",
-    "Future Web Developer",
-    "Modern Interface Expert",
-    "Future DSA Expert",
-  ];
+  const phrases = ["Code", "Build", "Innovate"];
   const typingSpeed = 100;
   const deletingSpeed = 50;
   const delayBetweenPhrases = 1500;
@@ -222,8 +276,6 @@ const Home = () => {
     }
   }, [charIndex, isDeleting]);
 
-  
-
   const handleImageClick = (src) => {
     setImageSource(src);
     setIsOverlayActive(true);
@@ -244,12 +296,10 @@ const Home = () => {
     document.body.removeChild(link);
   };
 
-  
-
   const isDarkMode = document.body.classList.contains("dark-mode");
 
   return (
-    <section className={`home primary secondary ${isDarkMode ? 'dark' : ''}`}>
+    <section className={`home primary secondary ${isDarkMode ? "dark" : ""}`}>
       <div className="home-image-section">
         <div
           className="home-image-card"
@@ -261,9 +311,6 @@ const Home = () => {
 
       <div className="home-content">
         <h2 className="aurora-text">Hi, I'm Sayandip</h2>
-
-        {/* Static Tagline */}
-        <p className="static-tagline">Code. Build. Innovate. 🚀</p>
 
         {/* Typing Animation */}
         <p className="typing-text">
@@ -291,42 +338,41 @@ const Home = () => {
 
 // About Component
 const About = ({ isDarkMode }) => (
-  <section className={`about ${isDarkMode ? 'dark-mode' : ''}`}>
+  <section className={`about ${isDarkMode ? "dark-mode" : ""}`}>
     <h2>About Me</h2>
     <div className="about-content">
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-        consectetur magnam aut perferendis, repellat esse, fuga quam hic
-        sapiente consequuntur dicta. Sunt possimus iure et repellendus atque
-        doloremque ratione consequatur, praesentium, quibusdam eligendi
-        obcaecati, maiores odit adipisci! Assumenda blanditiis ab quaerat quam
-        non aliquid sunt nesciunt quasi id doloribus est quia labore dolorem
-        eaque pariatur enim dolor in delectus nostrum libero similique, neque
-        architecto accusamus error? Vitae veritatis.
+        Hey there! I’m Sayandip Saha, a passionate and curious full-stack
+        developer with a love for building sleek, scalable, and impactful
+        digital experiences. Whether it’s crafting interactive UIs with React,
+        securing servers with Node.js, or modeling smart databases with MongoDB,
+        I thrive at every step of the development journey. I’ve worked on
+        exciting projects like an Online Voting System, a Real-Time Weather
+        Dashboard — blending creativity, technology, and purpose. Alongside
+        development, I’ve solved 250+ coding problems on LeetCode and GFG,
+        sharpening my DSA skills one line of logic at a time. Currently, I'm
+        actively exploring opportunities to grow as a developer, collaborate on
+        meaningful projects, and bring fresh ideas to life. When I’m not coding,
+        you’ll probably find me playing games, or vibing to music while dreaming
+        up my next big idea! Let’s build something amazing together!
       </p>
     </div>
     <div className="about-cards">
       <Card>
         <h3>Education</h3>
         <p>
-          Bachelor's Degree in Computer Science from XYZ University.
-          Specialization in Artificial Intelligence.
+          B.Tech in Information Technology from Maghnad Saha Institute of
+          Technology. Secured an overall CGPA of 7.61 till now.
         </p>
       </Card>
       <Card>
-        <h3>Languages & Tools</h3>
+        <h3>Technologies</h3>
         <ul>
-          <li>JavaScript, React, HTML, CSS</li>
-          <li>Python, C, Java</li>
-          <li>MongoDB, Node.js</li>
+          <li>JavaScript, React.js, Tailwind CSS</li>
+          <li>Node.js, Express.js</li>
+          <li>MongoDB</li>
+          <li>Java</li>
         </ul>
-      </Card>
-      <Card>
-        <h3>Experience</h3>
-        <p>
-          Worked on high-profile projects leveraging cutting-edge tools to solve
-          complex technical challenges.
-        </p>
       </Card>
       <Card>
         <h3>Achievements</h3>
@@ -335,7 +381,14 @@ const About = ({ isDarkMode }) => (
             Participant of Smart India Hackathon 2024 in the 'Fitness and
             Sports' category.
           </li>
-          <li>Certified in ChatGPT from SAYANDIP SAHA Institute.</li>
+          <li>
+            Solved 250+ DSA Problems across LeetCpde and GFG (Arrays, Linked
+            List, Stacks, etc.)
+          </li>
+          <li>
+            Earned Internship & Simulation Certificates from industry-recognized
+            platforms.
+          </li>
         </ul>
       </Card>
       <Card>
@@ -350,33 +403,19 @@ const About = ({ isDarkMode }) => (
   </section>
 );
 
-
 // My Experience Component
 const experiences = [
   {
-    date: "Jan 2023 - Present",
+    date: "July 2025",
+    title: "Deloitte Australia Data Analytics Job Simulation on Forage",
     details:
-      "Working as a Software Engineer, specializing in front-end development and user experience design.",
+      "I successfully completed a Deloitte job simulation focused on data analysis and forensic technology, gaining hands-on experience with real-world business scenarios. As part of the simulation, I built a dynamic data dashboard using Tableau to visualize trends and insights. Additionally, I utilized Microsoft Excel to organize, classify, and interpret large datasets—drawing meaningful business conclusions and showcasing my analytical thinking and attention to detail.",
   },
   {
-    date: "Jan 2023 - Present",
+    date: "June 2025",
+    title: "Web Development Intern – Pinnacle Labs",
     details:
-      "Working as a Software Engineer, specializing in front-end development and user experience design.",
-  },
-  {
-    date: "Jan 2023 - Present",
-    details:
-      "Working as a Software Engineer, specializing in front-end development and user experience design.",
-  },
-  {
-    date: "Aug 2021 - Dec 2022",
-    details:
-      "Contributed to an open-source project that involved integrating machine learning models into web platforms.",
-  },
-  {
-    date: "Mar 2020 - Jul 2021",
-    details:
-      "Interned at a tech startup, helping develop a chatbot for customer support automation.",
+      "Focused on strengthening frontend development skills by working on multiple internal projects. Gained hands-on experience with React.js, Tailwind CSS, and modern development practices while building responsive and user-friendly web interfaces.",
   },
 ];
 
@@ -394,6 +433,7 @@ const MyExperience = () => {
         {experiences.map((experience, index) => (
           <div key={index} className="experience-card">
             <h2 className="experience-date">{experience.date}</h2>
+            <h3 className="experience-title">{experience.title}</h3>
             <p className="experience-details">{experience.details}</p>
           </div>
         ))}
@@ -405,48 +445,55 @@ const MyExperience = () => {
 // Projects Component
 const projectsData = [
   {
-    title: "Interactive 3D Portfolio",
-    category: "Web",
-    description: "A stunning 3D web portfolio using Three.js and React.",
-    techStack: ["React", "Three.js", "GSAP"],
-    liveDemo: "#",
-    github: "#",
-  },
-  {
-    title: "AI-Driven Analytics App",
-    category: "AI",
-    description: "AI-powered insights for business intelligence.",
-    techStack: ["Python", "TensorFlow", "Flask"],
-    liveDemo: "#",
-    github: "#",
-  },
-  {
-    title: "Virtual Reality Tour Guide",
-    category: "Mobile Apps",
+    title: "Online Voting System",
     description:
-      "A VR-powered application for interactive tourism experiences.",
-    techStack: ["Unity", "C#", "VR SDKs"],
-    liveDemo: "#",
-    github: "#",
+      "A secure and user-friendly voting platform that allows users to cast votes online with authentication and result transparency.",
+    techStack: ["HTML", "CSS", "Javascript"],
+    liveDemo: "https://voting-software.netlify.app/",
+    image: "/public/ovs.png",
   },
   {
-    title: "Real-Time Chat App",
-    category: "Web",
-    description: "A scalable chat application with real-time messaging.",
-    techStack: ["React", "Node.js", "Socket.io"],
+    title: "Weather Web App",
+    description:
+      "A modern real-time weather dashboard with animated UI and live weather data using OpenWeatherMap API.",
+    techStack: ["React", "Tailwind CSS", "OpenWeatherMap API"],
+    liveDemo: "https://weather-web-dashboard.netlify.app/",
+    image: "/public/wwa.png",
+  },
+  {
+    title: "To-Do List App",
+    description:
+      "A lightweight and clean productivity app to manage daily tasks with add/edit/delete and completion tracking features.",
+    techStack: ["React", "Tailwind CSS"],
+    liveDemo: "https://todo-listcreate.netlify.app/",
+    image: "/public/tdl.png",
+  },
+  {
+    title: "Uber Clone (Work In Progress)",
+    description:
+      "Developing a ride-hailing application inspired by Uber with real-time ride booking and location tracking features.",
+    techStack: [],
     liveDemo: "#",
-    github: "#",
+    image: "/public/uc.png",
   },
 ];
 
 const Projects = ({ darkMode }) => (
-  <section className={`projects ${darkMode ? 'dark-mode' : ''}`}>
+  <section className={`projects ${darkMode ? "dark-mode" : ""}`}>
     <h2>Projects</h2>
 
     <div className="projects-grid">
       {projectsData.map((project, index) => (
         <div key={index} className="project-card">
           <h3>{project.title}</h3>
+          <img
+            src={project.image}
+            alt={`${project.title} Screenshot`}
+            className="project-image"
+          />
+          <p>
+            <em>{project.category}</em>
+          </p>
           <p>{project.description}</p>
           <p>
             <strong>Tech Stack:</strong> {project.techStack.join(", ")}
@@ -459,9 +506,6 @@ const Projects = ({ darkMode }) => (
             >
               Live Demo
             </a>
-            <a href={project.github} target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
           </div>
         </div>
       ))}
@@ -471,8 +515,12 @@ const Projects = ({ darkMode }) => (
 
 // Contact Component
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [statusMessage, setStatusMessage] = useState({ type: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [statusMessage, setStatusMessage] = useState({ type: "", message: "" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -482,11 +530,14 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
-      setStatusMessage({ type: 'error', message: 'All fields are required.' });
+      setStatusMessage({ type: "error", message: "All fields are required." });
       return;
     }
-    setStatusMessage({ type: 'success', message: 'Your message has been sent successfully!' });
-    setFormData({ name: '', email: '', message: '' });
+    setStatusMessage({
+      type: "success",
+      message: "Your message has been sent successfully!",
+    });
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
@@ -531,14 +582,15 @@ const Contact = () => {
             Send Message
           </button>
           {statusMessage.message && (
-            <p className={`status-message ${statusMessage.type}`}>{statusMessage.message}</p>
+            <p className={`status-message ${statusMessage.type}`}>
+              {statusMessage.message}
+            </p>
           )}
         </form>
       </div>
     </section>
   );
 };
-
 
 const App = () => (
   <Router>

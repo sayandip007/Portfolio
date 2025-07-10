@@ -156,3 +156,20 @@ body.dark-mode .experience-details {
     font-size: 0.8rem;
   }
 }
+
+.experience-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 4px;
+  color: #a3a3a3;
+}
+.experience-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 4px;
+  color: #e4b805;
+}
+
+.dark-mode .experience-title {
+  color: #e0e0e0;
+}
