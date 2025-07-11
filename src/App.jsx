@@ -450,7 +450,7 @@ const projectsData = [
       "A secure and user-friendly voting platform that allows users to cast votes online with authentication and result transparency.",
     techStack: ["HTML", "CSS", "Javascript"],
     liveDemo: "https://voting-software.netlify.app/",
-    image: "/public/ovs.png",
+    image: "/ovs.png",
   },
   {
     title: "Weather Web App",
@@ -458,7 +458,7 @@ const projectsData = [
       "A modern real-time weather dashboard with animated UI and live weather data using OpenWeatherMap API.",
     techStack: ["React", "Tailwind CSS", "OpenWeatherMap API"],
     liveDemo: "https://weather-web-dashboard.netlify.app/",
-    image: "/public/wwa.png",
+    image: "/wwa.png",
   },
   {
     title: "To-Do List App",
@@ -466,7 +466,7 @@ const projectsData = [
       "A lightweight and clean productivity app to manage daily tasks with add/edit/delete and completion tracking features.",
     techStack: ["React", "Tailwind CSS"],
     liveDemo: "https://todo-listcreate.netlify.app/",
-    image: "/public/tdl.png",
+    image: "/tdl.png",
   },
   {
     title: "Uber Clone (Work In Progress)",
@@ -474,7 +474,7 @@ const projectsData = [
       "Developing a ride-hailing application inspired by Uber with real-time ride booking and location tracking features.",
     techStack: [],
     liveDemo: "#",
-    image: "/public/uc.png",
+    image: "/uc.png",
   },
 ];
 
