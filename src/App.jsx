@@ -445,6 +445,14 @@ const MyExperience = () => {
 // Projects Component
 const projectsData = [
   {
+    title: "CarGo",
+    description:
+      "Buildt CarGo, a modern car rental platform that allows users to browse, book, and manage rental cars online with real-time availability and location-based features.",
+    techStack: ["React", "Tailwind CSS", "Node.JS,","Express.Js","MongoDB"],
+    liveDemo: "https://car-go-omega.vercel.app/",
+    image: "/cg.png",
+  },
+  {
     title: "Online Voting System",
     description:
       "A secure and user-friendly voting platform that allows users to cast votes online with authentication and result transparency.",
@@ -467,14 +475,6 @@ const projectsData = [
     techStack: ["React", "Tailwind CSS"],
     liveDemo: "https://todo-listcreate.netlify.app/",
     image: "/tdl.png",
-  },
-  {
-    title: "Uber Clone (Work In Progress)",
-    description:
-      "Developing a ride-hailing application inspired by Uber with real-time ride booking and location tracking features.",
-    techStack: [],
-    liveDemo: "#",
-    image: "/uc.png",
   },
 ];
 
@@ -504,7 +504,7 @@ const Projects = ({ darkMode }) => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              Live Demo
+              Visit
             </a>
           </div>
         </div>
